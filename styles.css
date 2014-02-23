@@ -41,7 +41,7 @@
     color: #ccc;
   }
 
-  .controls button {
+  #overlay .controls button {
     border: 0;
     width: 25%;
     height: 190px;

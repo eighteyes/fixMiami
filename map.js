@@ -46,6 +46,8 @@ map.setOptions({styles: styleArray});
 
     info.setContent( content[0] );
     info.setPosition(loc);
+    map.panTo(loc);
+
 
     info.open(map);
 
@@ -60,7 +62,7 @@ map.setOptions({styles: styleArray});
     });
   }
 
-  setInterval( pollTwitter, 10000 );
+  setInterval( pollTwitter, 2500 );
 
   //add new incident to map
   google.maps.event.addListener(map, 'click', handleAddIconClick);

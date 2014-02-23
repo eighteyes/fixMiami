@@ -37,14 +37,12 @@ function pollTwitter() {
         });
         // find if there is a match
         var type = tweet.text.match(iconRegex);
+        //remove hash
+        tweet.text = tweet.text.replace('#fixmiami', '');
         var index = tweet.text.indexOf(' at ');
         if ( !isIncident && index > 0 && type !== null && type.length > 0 ){
-          console.log("match", type, tweet);
-          //remove hash
-          tweet.text = tweet.text.replace('#fixmiami', '');
           //remove non a-z and &
-          var re = new RegExp('[^-a-z0-9\&]', 'ig');
-          tweet.text = tweet.text.replace( re, '');
+          console.log("match", type, tweet);
           // found a match
           if (index > 0) {
             getLocation(tweet.id, type[0].toLowerCase(), tweet.text.slice(index + 4), processLocation);
@@ -57,11 +55,12 @@ function pollTwitter() {
 
 
 function getLocation(id, type, str, cb) {
+  console.log('geocoding:', str);
   geo.geocode({
     address: str + " Miami, FL"
   }, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
-      // console.log('GEO:', results);
+      console.log('GEO:', results);
       cb(null, id, type, results[0].geometry.location)
     } else {
       console.error('Geo Fuckup')
