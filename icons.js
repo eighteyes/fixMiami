@@ -1,6 +1,8 @@
 
 var iconNames = [ 'crime', 'dirty', 'drunk', 'flooding', 'potholes', 'sewer', 'smelly', 'streetlight', 'traffic', 'trafficlight', 'transportation', 'violence', 'beach', 'homeless', 'palmtree', 'park', 'building' ];
 
+var iconRegex = new RegExp(iconNames.join('|'), 'i');
+
 var icons = {
   beach : {
     title: 'Beach Cleanup', verbage: 'Help Clean The Beaches', donate: 'Swim safely, donate to Friends of the Beach'
@@ -56,7 +58,6 @@ var icons = {
 };
 
 for ( i in iconNames ){
-  console.log( iconNames[i] );
   icons[iconNames[i]].url = 'images/' + iconNames[i] + '.png',
   icons[iconNames[i]].value = iconNames[i];
 }

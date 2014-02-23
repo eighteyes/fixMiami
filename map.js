@@ -17,24 +17,7 @@ function success(latLng) {
   // restore
   rebuildIncidents();
   //
-
-  var poop = new google.maps.Marker({
-    position: latLon,
-    map: map,
-    animation: google.maps.Animation.DROP,
-    icon: icons.drunk.url,
-    title: icons.drunk.title
-  });
-
-  var infowindow = new google.maps.InfoWindow({
-    content: "<div>A little man is a little drunk</div>"
-  });
-
-  google.maps.event.addListener(poop, 'click', function() {
-    infowindow.open(map, poop);
-  });
-
-
+  //
   function handleAddIconClick(e) {
     var content = makeIconList();
     var loc = e.latLng;
@@ -55,6 +38,9 @@ function success(latLng) {
     });
   }
 
+
+  setInterval( pollTwitter, 10000 );
+
   //add new incident to map
   google.maps.event.addListener(map, 'click', handleAddIconClick);
 }
@@ -72,6 +58,7 @@ function initialize() {
     timeout: 5000,
     maximumAge: 0
   };
+
 
   navigator.geolocation.getCurrentPosition(success, error, options);
 }
