@@ -59,12 +59,7 @@ function success(latLng) {
   google.maps.event.addListener(map, 'click', handleAddIconClick);
 }
 
-// incidents
-// Votes
-// Browser Storage + Votes
-// Icon Objects + Verbage
 // TODO: Twitter Integration
-// TODO: Paypal Integration
 
 function error() {
   console.error("I can't handle this");

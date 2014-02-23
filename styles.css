@@ -8,6 +8,10 @@
     padding: 0px;
     z-index:10;
   }
+  meter {
+    width:200px;
+  }
+
   #overlay {
     width: 100%;
     display:none;
@@ -33,4 +37,22 @@
   .iconList img {
     display: block;
     margin: 0 auto;
+  }
+
+  .verbage .controls {
+    float: right;
+  }
+
+  .verbage h1, .donate h1{
+    font-size: 1.2em;
+    text-transform: capitalize;
+  }
+  .verbage p:last-of-type, .donate form:last-of-type {
+    height: 36px;
+    text-align: center;
+  }
+
+  .donate .money {
+    color: green;
+    margin-left: 10px;
   }
