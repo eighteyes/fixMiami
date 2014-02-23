@@ -1,5 +1,5 @@
 
-var iconNames = [ 'crime', 'dirty', 'drunk', 'flooding', 'potholes', 'sewer', 'smelly', 'streetlight', 'traffic', 'trafficlight', 'transportation', 'trash', 'violence', 'beach', 'homeless', 'palmtree', 'park', 'building' ];
+var iconNames = [ 'crime', 'dirty', 'drunk', 'flooding', 'potholes', 'sewer', 'smelly', 'streetlight', 'traffic', 'trafficlight', 'transportation', 'violence', 'beach', 'homeless', 'palmtree', 'park', 'building' ];
 
 var icons = {
   beach : {
@@ -15,7 +15,7 @@ var icons = {
     title: 'Litter Everywhere', verbage: 'Garbage is ruining this space', donate: 'Goes to Friends of the Street'
   },
   drunk : {
-    title: 'Drunkards', verbage: 'People are yelling and peeing here regularly', donate: 'Goes to the police to increase patrols'
+    title: 'Drunkards', verbage: 'People are yelling and peeing here regularly', donate: 'Goes to the police to increase patrols', term: 'drunk'
   },
   flooding : {
     title: 'Flooding', verbage: 'High water levels are often here', donate: 'Goes to City Sanitation to fix the problem'
@@ -56,6 +56,7 @@ var icons = {
 };
 
 for ( i in iconNames ){
+  console.log( iconNames[i] );
   icons[iconNames[i]].url = 'images/' + iconNames[i] + '.png',
   icons[iconNames[i]].value = iconNames[i];
 }
