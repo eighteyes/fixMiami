@@ -19,3 +19,12 @@ function r() {
   localStorage.clear('incidents');
   location.reload(true);
 }
+
+$.ajax('http://127.0.0.1:1337' , {
+  success: function(resp) {
+    for ( i in resp.statuses ){
+      var tweet = resp.statuses[i];
+      console.log(tweet.text);
+    }
+  }
+});
