@@ -37,12 +37,17 @@ function pollTwitter() {
         });
         // find if there is a match
         var type = tweet.text.match(iconRegex);
-        var index = tweet.text.indexOf('is at ');
+        var index = tweet.text.indexOf(' at ');
         if ( !isIncident && index > 0 && type !== null && type.length > 0 ){
           console.log("match", type, tweet);
+          //remove hash
+          tweet.text = tweet.text.replace('#fixmiami', '');
+          //remove non a-z and &
+          var re = new RegExp('[^-a-z0-9\&]', 'ig');
+          tweet.text = tweet.text.replace( re, '');
           // found a match
           if (index > 0) {
-            getLocation(tweet.id, type[0].toLowerCase(), tweet.text.slice(index + 7), processLocation);
+            getLocation(tweet.id, type[0].toLowerCase(), tweet.text.slice(index + 4), processLocation);
           }
         }
       }
