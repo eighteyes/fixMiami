@@ -28,7 +28,7 @@ function r() {
 function pollTwitter() {
   $.ajax('http://127.0.0.1:1337', {
     success: function(resp) {
-      console.log('Twitter', resp);
+      //console.log('Twitter', resp);
       for (i in resp.statuses) {
         var tweet = resp.statuses[i];
         // Exclude if already encoded
@@ -45,7 +45,7 @@ function pollTwitter() {
           console.log("match", type, tweet);
           // found a match
           if (index > 0) {
-            getLocation(tweet.id, type[0].toLowerCase(), tweet.text.slice(index + 4), processLocation);
+            getLocation(tweet, type[0].toLowerCase(), tweet.text.slice(index + 4), processLocation);
           }
         }
       }
@@ -54,14 +54,14 @@ function pollTwitter() {
 };
 
 
-function getLocation(id, type, str, cb) {
-  console.log('geocoding:', str);
+function getLocation(tweet, type, str, cb) {
+  //console.log('geocoding:', str);
   geo.geocode({
     address: str + " Miami, FL"
   }, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
-      console.log('GEO:', results);
-      cb(null, id, type, results[0].geometry.location)
+      //console.log('GEO:', results);
+      cb(null, tweet, type, results[0].geometry.location)
     } else {
       console.error('Geo Fuckup')
       cb(new Error("Fuck"));
@@ -69,7 +69,8 @@ function getLocation(id, type, str, cb) {
   });
 }
 
-function processLocation( err, id, type, resp ){
-  var inc = new Incident(type, resp, 1, id);
+function processLocation( err, tweet, type, resp ){
+  var inc = new Incident(type, resp, 1, tweet.id);
+  inc.addMetaFromTweet(tweet);
   incidents.push(inc);
 }

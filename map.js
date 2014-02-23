@@ -62,7 +62,7 @@ map.setOptions({styles: styleArray});
     });
   }
 
-  setInterval( pollTwitter, 2500 );
+  setInterval( pollTwitter, 10000 );
 
   //add new incident to map
   google.maps.event.addListener(map, 'click', handleAddIconClick);

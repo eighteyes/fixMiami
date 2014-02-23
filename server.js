@@ -26,7 +26,7 @@ http.createServer(function (req, res) {
 
   T.get('search/tweets', { q: '#fixmiami' }, function(err, resp){
     if (err) {
-      console.error('Search Error');
+      console.error('Search Error', err, resp);
     } else {
       res.end(JSON.stringify(resp));
     }

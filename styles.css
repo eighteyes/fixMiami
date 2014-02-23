@@ -26,6 +26,11 @@
     left:0;
   }
 
+  .tweetIcon {
+    width: 14px;
+    margin-right:3px;
+  }
+
   #overlay .logo {
     padding-top: 10px;
     padding-left:10px;
@@ -51,7 +56,7 @@
     margin-left:5%;
   }
 
-  .controls button:hover {
+  #overlay .controls button:hover {
     -webkit-transition-duration: 250ms;
     background-color: rgb(255,8,204);
   }

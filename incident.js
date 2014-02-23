@@ -6,6 +6,11 @@ var Incident = function(type, latLon, votes, id) {
   this.id = id;
   this.type = type;
   this.votes = votes || 0;
+  this.meta = {
+    reporter: '',
+    date: '',
+    picture: ''
+  };
   this.fund = {
     total: 1000,
     current: Math.round(Math.random()*1000)
@@ -14,10 +19,16 @@ var Incident = function(type, latLon, votes, id) {
   // gmaps obj
   this.loc = latLon;
 
+  this.addMetaFromTweet = function( tweet ){
+    this.meta.reporter = tweet.user.name;
+    this.meta.date = new Date(tweet.created_at).toDateString();
+    this.meta.picture = tweet.user.profile_image_url;
+  };
+
   this.addVote = function() {
     this.votes += 1;
     this.save();
-  }
+  };
 
   this.getVerbage = function() {
     return $('<div>', {
@@ -25,6 +36,10 @@ var Incident = function(type, latLon, votes, id) {
     }).append(
       $('<h1>').text(icons[tIncident.type].title),
       $('<p>').text(icons[tIncident.type].verbage),
+      $('<p>').append(
+        $('<img>', { class: 'tweetIcon', src: this.meta.picture }),
+        this.meta.reporter + ' at ' + this.meta.date
+      ),
       $('<p>', { class: 'bottom' }).append(
         'Total Votes:',
         $('<span>', { text: tIncident.votes }),
