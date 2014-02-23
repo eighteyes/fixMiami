@@ -28,16 +28,18 @@ function pollTwitter() {
       console.log('Twitter', resp);
       for (i in resp.statuses) {
         var tweet = resp.statuses[i];
-        // TODO: Exclude if already encoded
+        // Exclude if already encoded
+        var isIncident = _.find( incidents, function( inc ) {
+          return inc.id == tweet.id
+        });
         // find if there is a match
         var type = tweet.text.match(iconRegex);
-        if ( type !== null && type.length > 0 ){
+        var index = tweet.text.indexOf('is at ');
+        if ( !isIncident && index > 0 && type !== null && type.length > 0 ){
           console.log("match", type);
           // found a match
-          var index = tweet.text.indexOf('is at ');
           if (index > 0) {
-            console.log(tweet.text);
-            getLocation(type[0], tweet.text.slice(index + 7), processLocation);
+            getLocation(tweet.id, type[0].toLowerCase(), tweet.text.slice(index + 7), processLocation);
           }
         }
       }
@@ -46,13 +48,13 @@ function pollTwitter() {
 };
 
 
-function getLocation(type, str, cb) {
+function getLocation(id, type, str, cb) {
   geo.geocode({
     address: str + " Miami, FL"
   }, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
-      console.log('GEO:', results);
-      cb(null, type, results[0].geometry.location)
+      // console.log('GEO:', results);
+      cb(null, id, type, results[0].geometry.location)
     } else {
       console.error('Geo Fuckup')
       cb(new Error("Fuck"));
@@ -60,8 +62,7 @@ function getLocation(type, str, cb) {
   });
 }
 
-function processLocation( err, type, resp ){
-  var latLng = resp;
-  console.log('Process Location', type, latLng);
-  var inc = new Incident(type, latLng, 1);
+function processLocation( err, id, type, resp ){
+  var inc = new Incident(type, resp, 1, id);
+  incidents.push(inc);
 }

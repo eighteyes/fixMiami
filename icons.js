@@ -1,5 +1,5 @@
 
-var iconNames = [ 'crime', 'dirty', 'drunk', 'flooding', 'potholes', 'sewer', 'smelly', 'streetlight', 'traffic', 'trafficlight', 'transportation', 'violence', 'beach', 'homeless', 'palmtree', 'park', 'building' ];
+var iconNames = [ 'crime', 'dirty', 'drunk', 'flooding', 'potholes', 'sewer', 'smelly', 'streetlight', 'traffic', 'trafficlight', 'depot', 'violence', 'beach', 'homeless', 'palmtree', 'park', 'building' ];
 
 var iconRegex = new RegExp(iconNames.join('|'), 'i');
 
@@ -49,7 +49,7 @@ var icons = {
   trafficlight : {
     title: 'Add/Fix Traffic Light', verbage: 'This traffic light is broken or needs to be adjusted', donate: 'Get to work faster'
   },
-  transportation : {
+  depot : {
     title: 'Add A Bus Stop', verbage: 'This space needs a bus stop to serve residents and business', donate: 'Incentivize the city to add a bus stop.'
   },
   violence : {
@@ -58,6 +58,7 @@ var icons = {
 };
 
 for ( i in iconNames ){
+  console.log(iconNames[i]);
   icons[iconNames[i]].url = 'images/' + iconNames[i] + '.png',
   icons[iconNames[i]].value = iconNames[i];
 }

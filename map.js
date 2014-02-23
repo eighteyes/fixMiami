@@ -31,7 +31,7 @@ function success(latLng) {
       console.log('click', $(this).attr('data-type'));
       var type = $(this).attr('data-type');
 
-      var incident = new Incident(type, loc);
+      var incident = new Incident(type, loc, 0, incidents.length);
       incidents.push(incident);
 
       info.close();
