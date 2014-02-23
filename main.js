@@ -16,6 +16,10 @@ function rebuildIncidents() {
   }
 }
 
+$(document).ready(function(){
+  $('#overlay').on('click', function(){ $(this).fadeOut(); })
+});
+
 function r() {
   localStorage.clear('incidents');
   location.reload(true);

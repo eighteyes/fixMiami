@@ -13,16 +13,99 @@
   }
 
   #overlay {
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
     width: 100%;
-    display:none;
     height: 60%;
-    background-color: rgba(255,255,255,0.1);
-    box-shadow: 0 0 10px 10px white;
+    background-image: url(images/background.jpg);
+    box-shadow: 0 0 100px 25px black;
     z-index: 100;
     position: absolute;
     top:10%;
     left:0;
   }
+
+  #overlay .logo {
+    padding-top: 10px;
+    padding-left:10px;
+  }
+
+  #overlay .mascot {
+    float:right;
+    height: 136px;
+  }
+
+  #overlay h3 {
+    padding-left:10px;
+    color: #ccc;
+  }
+
+  .controls button {
+    border: 0;
+    width: 25%;
+    height: 190px;
+    margin-top:25px;
+    background-color: rgba(255,255,255,0.8);
+    font-size:1.1em;
+    margin-left:5%;
+  }
+
+  .controls button:hover {
+    -webkit-transition-duration: 250ms;
+    background-color: rgb(255,8,204);
+  }
+
+  .tweets img{
+    width:40px;
+    height:50px;
+  }
+
+  .tweets .tw:last-of-type {
+    border-bottom: 0;
+  }
+
+  .tweets .tw {
+    clear:both;
+    border-bottom: 1px solid #666;
+    margin-bottom:5px;
+  }
+
+
+  .tweets .tw p {
+    float : right;
+    width: calc( 100% - 50px);
+    margin:0;
+  }
+
+  .tw span {
+    color: #696;
+    font-size:0.9em;
+    display: block;
+    text-align: right;
+  }
+
+  .tweets {
+    width: 34.9%;
+    float:right;
+    font-size:0.9em;
+    padding:5px;
+    overflow: hidden;
+  }
+
+
+  .blurb {
+    color: #111;
+    width: 61%;
+    padding: 10px;
+    text-align:center;
+  }
+
+  .tweets, .blurb {
+    display:block;
+    background-color: rgba(255,255,255,0.8);
+  }
+
   .iconList {
     width: 360px;
   }
