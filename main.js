@@ -1,5 +1,4 @@
-var map;
-var location;
+var map, info, location;
 var geo = new google.maps.Geocoder()
 
 // incidents are added to with rebuilding and clicking
@@ -12,7 +11,7 @@ function rebuildIncidents() {
     console.log('Local:', incidents);
     for (var i = 0, l = incidents.length; i < l; i++) {
       console.log('Old', incidents[i]);
-      incidents[i] = new Incident(incidents[i].type, incidents[i].loc, incidents[i].votes);
+      incidents[i] = new Incident(incidents[i].type, incidents[i].loc, incidents[i].votes, incidents[i].id || i);
     }
   }
 }
@@ -36,7 +35,7 @@ function pollTwitter() {
         var type = tweet.text.match(iconRegex);
         var index = tweet.text.indexOf('is at ');
         if ( !isIncident && index > 0 && type !== null && type.length > 0 ){
-          console.log("match", type);
+          console.log("match", type, tweet);
           // found a match
           if (index > 0) {
             getLocation(tweet.id, type[0].toLowerCase(), tweet.text.slice(index + 7), processLocation);

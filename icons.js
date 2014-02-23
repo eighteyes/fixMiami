@@ -1,5 +1,5 @@
 
-var iconNames = [ 'crime', 'dirty', 'drunk', 'flooding', 'potholes', 'sewer', 'smelly', 'streetlight', 'traffic', 'trafficlight', 'depot', 'violence', 'beach', 'homeless', 'palmtree', 'park', 'building' ];
+var iconNames = [ 'crime', 'garbage', 'drunk', 'flooding', 'pothole', 'sewer', 'smelly', 'streetlight', 'traffic', 'trafficlight', 'depot', 'violence', 'beach', 'homeless', 'tree', 'park', 'building' ];
 
 var iconRegex = new RegExp(iconNames.join('|'), 'i');
 
@@ -13,7 +13,7 @@ var icons = {
   crime : {
     title: 'Shady Characters', verbage: "This place is dangerous", donate: 'Goes to Police to increase patrols'
   },
-  dirty : {
+  garbage : {
     title: 'Litter Everywhere', verbage: 'Garbage is ruining this space', donate: 'Goes to Friends of the Street'
   },
   drunk : {
@@ -25,13 +25,13 @@ var icons = {
   homeless : {
     title: 'Homeless Presence', verbage: 'Homeless people are residing here.', donate: 'Goes to Shelter programs'
   },
-  palmtree : {
+  tree : {
     title: 'Needs some Trees', verbage: 'Not enough shade here.', donate: 'Goes to Plant a Tree Foundation'
   },
   park : {
     title: 'Add A Park', verbage: 'This space would be improved with a park or other public space', donate: 'Goes to Friends of Parks'
   },
-  potholes : {
+  pothole : {
     title: 'Fix A Pothole', verbage: 'This pothole could become a sinkhole if not fixed', donate: 'Fixing this pothole is cheaper then a new suspension'
   },
   sewer : {
@@ -58,7 +58,7 @@ var icons = {
 };
 
 for ( i in iconNames ){
-  console.log(iconNames[i]);
+  // console.log(iconNames[i]);
   icons[iconNames[i]].url = 'images/' + iconNames[i] + '.png',
   icons[iconNames[i]].value = iconNames[i];
 }
