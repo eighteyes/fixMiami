@@ -1,0 +1,30 @@
+{
+  "name": "fixMiami",
+  "version": "0.0.2",
+  "description": "A Platform for Tweet Driven Public Works Reporting and Discovery",
+  "main": "main.js",
+  "dependencies": {
+    "connect": "~2.13.0",
+    "twit": "~1.1.12"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eighteyes/fixMiami.git"
+  },
+  "keywords": [
+    "civic",
+    "twitter",
+    "google-maps"
+  ],
+  "author": "Sean Canton <eighteyes@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eighteyes/fixMiami/issues"
+  },
+  "homepage": "https://github.com/eighteyes/fixMiami"
+}
