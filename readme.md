@@ -3,6 +3,8 @@
 
 Fix Miami was built during the 2014 Battlehack Miami between 2/22 @ 1pm and 2/23 @ 1pm.
 
+![FixMiami Map](https://f.cloud.github.com/assets/405274/2250492/b6b66e7a-9d90-11e3-9977-b338bb874317.png)
+
 # Installation & Execution
 
 `npm install`
@@ -36,4 +38,3 @@ Need a bus depot at 1600 Washington St #fixMiami
 - Improve UX for responsiveness
 - Add Keywords & Categories
 - Include printing & phone call integration
--
