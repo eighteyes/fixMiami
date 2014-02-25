@@ -26,7 +26,8 @@ function r() {
 }
 
 function pollTwitter() {
-  $.ajax('http://127.0.0.1:1337', {
+  $.ajax('http://fixmiami.miamicode.org:1337', {
+
     success: function(resp) {
       //console.log('Twitter', resp);
       for (i in resp.statuses) {

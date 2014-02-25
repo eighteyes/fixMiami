@@ -4,7 +4,7 @@ var connect = require('connect');
 
 connect.createServer(
     connect.static(__dirname)
-).listen(8080);
+).listen(80);
 
 var T = new Twit({
     consumer_key:         'dUDZT5cMt8EtRGWSmjKDlw'
@@ -15,7 +15,7 @@ var T = new Twit({
 
 http.createServer(function (req, res) {
    // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8080');
+    res.setHeader('Access-Control-Allow-Origin', 'http://fixmiami.miamicode.org');
 
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -32,8 +32,8 @@ http.createServer(function (req, res) {
     }
   });
 
-}).listen(1337, '127.0.0.1');
+}).listen(1337);
 
-console.log('Server running at http://127.0.0.1:1337/');
+console.log('Server running at http://fixmiami.:80/');
 
 
